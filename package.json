@@ -1,0 +1,32 @@
+{
+  "name": "e-commerce-full-stack",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Full-stack fashion store: Express, MongoDB, React and PayPal, written in TypeScript.",
+  "author": "Hamdi Werhani (https://github.com/hamdiwerhanii)",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.13.0"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
+    "dev:demo": "concurrently -n server,client -c blue,magenta \"npm run dev:demo -w server\" \"npm run dev -w client\"",
+    "build": "npm run build --workspaces",
+    "start": "npm run start -w server",
+    "seed": "npm run seed -w server",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:unit": "npm run test:unit --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5",
+    "prettier": "^3.9.10"
+  }
+}
